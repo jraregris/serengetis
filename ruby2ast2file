@@ -1,0 +1,26 @@
+#!/bin/env ruby
+require 'ruby_parser'
+
+code = STDIN.read
+
+#def dottify ast, pre = ""
+#  unless ast.is_a? Enumerable do
+#    
+#  else
+#
+#  end
+#end
+
+begin
+  ast = RubyParser.new.parse(code)
+
+  File.open("auto_ast_#{Time.now.to_i}.ast",'w') do |f|
+    f << ast
+  end
+
+ # dotto = dotify ast
+rescue
+
+end
+
+STDOUT << code
